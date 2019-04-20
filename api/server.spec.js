@@ -72,16 +72,7 @@ describe('the server', () => {
 
         })
 
-        it('should return 405 error if same title', async () => {
-            
-            const res = await request(server).post('/movies').send(
-                { title: 'Star Trek', genre: 'Sci-Fy', releaseYear: 1944},
-                // { title: 'Star', genre: 'Action', releaseYear: 1966}
-            );
-            console.log(res.status);
-            expect(res.status).toEqual(405);
-
-        })
+        
         
     })
 

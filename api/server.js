@@ -15,18 +15,9 @@ server.get('/movies', async (req, res) => {
 
 server.post('/movies', async (req, res) => {
     const newMovie = req.body;
-    const currentMovies = await Movies.fetchAll()
-    const unique = currentMovies.map(movie => {
-      movie.title !== newMovie.title
-    })
-
     if (newMovie.title && newMovie.genre) {
-      if (unique) {
-        const movie = await Movies.insert(newMovie)
-        res.status(201).json(movie);
-      } else {
-        res.status(405).json('Title is not unique.')
-      }
+      const movie = await Movies.insert(newMovie);
+      res.status(201).json(movie);
     } else {
       res.status(422).json('Title and Genre are required.')
     }
