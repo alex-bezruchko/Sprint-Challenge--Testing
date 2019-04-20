@@ -13,5 +13,18 @@ describe('the server', () => {
             expect(env).toBe('testing')
         })
     })
-
+    describe('GET /', () => {
+        it('should return status 200', async () => {
+            const res = await request(server).get('/');
+            expect(res.status).toBe(200);
+        })
+        it('should return json', async () => {
+            const res = await request(server).get('/');
+            expect(res.type).toBe('application/json');
+        })
+        it('should return { message: "Movies api is up"}', async () => {
+            const res = await request(server).get('/');
+            expect(res.body).toEqual({ message: "Movies api is up"});
+        })
+    })
 })
