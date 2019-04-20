@@ -28,8 +28,8 @@ describe('the server', () => {
         })
     })
 
-    describe('GET /movies', () => {
-        it('should return json', async () => {
+    describe('GET /movies ', () => {
+        it('should return with status 200, and empty json', async () => {
             const res = await request(server).get('/movies');
             expect(res.status).toBe(200);
             expect(res.type).toBe('application/json');
