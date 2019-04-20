@@ -27,4 +27,13 @@ describe('the server', () => {
             expect(res.body).toEqual({ message: "Movies api is up"});
         })
     })
+
+    describe('GET /movies', () => {
+        it('should return json', async () => {
+            const res = await request(server).get('/movies');
+            expect(res.status).toBe(200);
+            expect(res.type).toBe('application/json');
+            expect(res.body).toEqual([]);
+        })
+    })
 })
