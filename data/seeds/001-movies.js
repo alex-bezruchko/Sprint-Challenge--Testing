@@ -4,7 +4,7 @@ exports.seed = function(knex, Promise) {
       .truncate()
       .then(function() {
         return knex('movies').insert([
-          { title: 'Back to the Future',  genre: 'Sci-Fy', releaseYear: 1964 },
+          { title: 'Star Trek',  genre: 'Sci-Fy', releaseYear: 1964 },
           { title: 'Lord of the Rings',  genre: 'Epic', releaseYear: 1974 },
           { title: 'First Contact',  genre: 'Sci-Fy', releaseYear: 1984 },
           { title: 'Home Alone',  genre: 'Comedy', releaseYear: 1994 },
