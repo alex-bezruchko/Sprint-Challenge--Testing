@@ -13,4 +13,13 @@ server.get('/movies', async (req, res) => {
   res.status(200).json(movies);
 });
 
+server.post('/movies', async (req, res) => {
+    const newMovie = req.body;
+    if (newMovie.title && newMovie.genre) {
+      const movie = await Movies.insert(newMovie);
+      res.status(201).json(movie);
+    } else {
+      res.status(422).json('Title and Genre are required.')
+    }
+});
 module.exports = server;

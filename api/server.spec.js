@@ -58,10 +58,10 @@ describe('the server', () => {
         it('should respond with the inserted movie', async () => {
             
             const res = await request(server).post('/movies').send({ title: 'Lion King', genre: 'Cartoon', releaseYear: 1988})
-            expect(res.status).toBe(404);
-            // expect(res.body.title).toBe('Lion King')
-            // expect(res.body.genre).toBe('Cartoon')
-            // expect(res.body.releaseYear).toBe(1988)
+            expect(res.status).toBe(422);
+            expect(res.body.title).toBe('Lion King')
+            expect(res.body.genre).toBe('Cartoon')
+            expect(res.body.releaseYear).toBe(1988)
 
         })
         
